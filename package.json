@@ -1,0 +1,28 @@
+{
+  "name": "ie-hw1",
+  "version": "1.0.0",
+  "description": "First homework of internet Engineering course",
+  "main": "index.js",
+  "scripts": {
+    "start": "nodemon ./bin/www"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/q010p/IE-HW1.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/q010p/IE-HW1/issues"
+  },
+  "homepage": "https://github.com/q010p/IE-HW1#readme",
+  "dependencies": {
+    "dotenv": "^8.2.0",
+    "express": "^4.17.1",
+    "nodemon": "^1.19.4"
+  },
+  "devDependencies": {
+    "eslint": "^6.5.1",
+    "eslint-plugin-react": "^7.16.0"
+  }
+}
