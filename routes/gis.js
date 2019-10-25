@@ -11,7 +11,8 @@ router.put('/addpolygon', function(req,res){
 })
 
 router.get('/testpoint',function(req,res){
-    debug('get request to /gis/testpoint endpoint')
+    debug('get request to /gis/testpoint endpoint with below params :\nreq.query')
+    res.send(polygonManager.checkPointInPolygon(req.query.lat,req.query.long))
 })
 
 
