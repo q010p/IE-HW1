@@ -4,7 +4,8 @@
   "description": "First homework of internet Engineering course",
   "main": "index.js",
   "scripts": {
-    "start": "nodemon ./bin/www"
+    "start": "nodemon ./bin/www",
+    "start:mon":"nodemon ./bin/www"
   },
   "repository": {
     "type": "git",
