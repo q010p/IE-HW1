@@ -1,5 +1,6 @@
 const fs = require('fs')
 const debug = require('debug')(`${process.env.name}:polygon-manager`)
+const inside = require('point-in-polygon')
 
 
 let polygonManager = {}
@@ -16,6 +17,17 @@ polygonManager.addPolygon = function (poly) {
     debug('adding a polygon to in memory structure')
     polygons.features.push(poly)
     console.log(polygons)
+}
+
+polygonManager.checkPointInPolygon = function (lat, long) {
+    debug(`checking point with coordinates (${lat},${long})`)
+    let result = { polygons: [] };
+    polygons.features.forEach(element => {
+        if (inside([long, lat], element.geometry.coordinates[0])) {
+            result.polygons.push(element.properties.name)
+        }
+    });
+    return result;
 }
 
 
