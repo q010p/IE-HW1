@@ -16,7 +16,10 @@ if (polygons === undefined) {
 polygonManager.addPolygon = function (poly) {
     debug('adding a polygon to in memory structure')
     polygons.features.push(poly)
-    console.log(polygons)
+    fs.writeFile(`${__dirname}/polygons.json`,JSON.stringify(polygons),(err)=>{
+       if(err) throw err
+       debug('new polygon added to polygons file') 
+    })
 }
 
 polygonManager.checkPointInPolygon = function (lat, long) {
