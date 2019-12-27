@@ -5,13 +5,13 @@ const polygonManager = require('../data/polygon-manager')
 
 
 router.put('/addpolygon', function(req,res){
-    debug('put request to /gis/addpolygon endpoint')
+    debug('put request to /api/gis/addpolygon endpoint')
     polygonManager.addPolygon(req.body)
     res.sendStatus(200)
 })
 
 router.get('/testpoint',function(req,res){
-    debug('get request to /gis/testpoint endpoint with below params :\nreq.query')
+    debug('get request to /api/gis/testpoint endpoint with below params :\nreq.query')
     res.send(polygonManager.checkPointInPolygon(req.query.lat,req.query.long))
 })
 

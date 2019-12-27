@@ -5,9 +5,12 @@ This is First homework of Internet Engineering
 ## General Description
 
 this application consists of two restfull api endpoints
-
-* /gis/addpolygon PUT
-* /gis/testpoint GET
+* apis under /api/gis:
+    - /api/gis/addpolygon PUT you can add some polygons to server polygons
+    - /api/gis/testpoint GET you can check that a point is inside the polygons that stored in server
+* apis under /api/forms:
+    - /api/forms GET get list of all forms
+    - /api/forms/:id get a form by id
 
 in the first one you can add some polygons to server polygons
 in the second one you can check that a point is inside the polygons that stored in server

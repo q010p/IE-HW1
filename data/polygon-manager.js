@@ -5,20 +5,33 @@ const inside = require('point-in-polygon')
 
 let polygonManager = {}
 let polygons;
-if (polygons === undefined) {
-    fs.readFile(`${__dirname}/polygons.json`, (err, data) => {
-        if (err) throw err
-        polygons = JSON.parse(data)
-        debug(`polygons initialized from ${__dirname}/polygons.json file`)
+
+initPolygons()
+//for(let i =0;i<1000000000000000;i++);
+
+async function initPolygons(){
+    if (polygons === undefined) {
+        await readPolygonsFromFile()
+    }
+}
+
+function readPolygonsFromFile() {
+    return new Promise(resolve => {
+        fs.readFile(`${__dirname}/polygons.json`, (err, data) => {
+            if (err) throw err
+            polygons = JSON.parse(data)
+            debug(`polygons initialized from ${__dirname}/polygons.json file`)
+            resolve()
+        })
     })
 }
 
 polygonManager.addPolygon = function (poly) {
     debug('adding a polygon to in memory structure')
     polygons.features.push(poly)
-    fs.writeFile(`${__dirname}/polygons.json`,JSON.stringify(polygons),(err)=>{
-       if(err) throw err
-       debug('new polygon added to polygons file') 
+    fs.writeFile(`${__dirname}/polygons.json`, JSON.stringify(polygons), (err) => {
+        if (err) throw err
+        debug('new polygon added to polygons file')
     })
 }
 
