@@ -1,14 +1,19 @@
 const express = require('express');
 const cors = require('cors')
-var app = express();
+const app = express();
+let path = require('path');
+
+
 
 const bodyParser = require('body-parser')
 app.use(bodyParser.json())
 app.use(cors())
+app.use(express.static(path.join(__dirname, 'public')));
 
-var indexRouter = require('./routes/index')
-var gisRouter = require('./routes/gis')
-var formsRouter = require('./routes/forms')
+
+const indexRouter = require('./routes/index')
+const gisRouter = require('./routes/gis')
+const formsRouter = require('./routes/forms')
 
 app.use('/', indexRouter)
 app.use('/api/gis', gisRouter)
